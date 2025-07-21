@@ -1,0 +1,37 @@
+{
+    "name": "Simple Inject",
+    "description": "Inject io.CB into the page",
+    "version": "1.0",
+    "manifest_version": 3,
+    "content_scripts": [
+        {
+            "js": [
+                "scripts/browser-inject.js"
+            ],
+            "matches": [
+                "https://example.com/*"
+            ],
+            "run_at": "document_end"
+        },
+        {
+            "js": [
+                "scripts/init.js"
+            ],
+            "matches": [
+                "https://example.com/*"
+            ],
+            "run_at": "document_idle",
+            "world": "MAIN"
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "browser.es.js"
+            ],
+            "matches": [
+                "https://example.com/*"
+            ]
+        }
+    ]
+}
